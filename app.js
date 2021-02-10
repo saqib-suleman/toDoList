@@ -1,7 +1,5 @@
 let task = prompt("What would you like to do?");
-
-const toDoList = [];
-
+const toDoList = ['A, B'];
 while (task !== "quit") {
     if (task === "list") {
         console.log("&&&&&&&&&&");
@@ -15,7 +13,13 @@ while (task !== "quit") {
         console.log(`${add} added to the list.`)
     } else if (task === "delete") {
         const remove = parseInt(prompt("Input the index of the entry you would like to delete:"));
-        toDoList.splice(remove, 1);
-        console.log(`OK, deleted ${deleted}`)
+        if (!Number.isNaN(remove)) {
+            const deleted = toDoList.splice(remove, 1);
+            console.log(`OK, deleted ${deleted[0]}`);
+        } else {
+            console.log("Unknown index")
+        }
     }
+    task = prompt("What would you like to do?");
 }
+console.log("OK, You quit the app.")
