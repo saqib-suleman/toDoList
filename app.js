@@ -1,26 +1,21 @@
 let task = prompt("What would you like to do?");
 
-let toDoList = [];
-while (task !== "quit") {
-    if (task === "new") {
-        let add = prompt("Enter a new ToDo:");
-        toDoList.push(add);
-    }
-}
-// console.log(toDoList);
+const toDoList = [];
 
-while (task !== "quit") {
-    if (task === "delete") {
-        let remove = prompt("Input the index of the entry you would like to delete:");
-        toDoList.pop(add);
-    }
-}
 while (task !== "quit") {
     if (task === "list") {
-        console.log(toDoList);
+        console.log("&&&&&&&&&&");
+        for (let i = 0; i < toDoList.length; i++) {
+            console.log(`${i}: ${toDoList[i]}`);
+        }
+        console.log("&&&&&&&&&&");
+    } else if (task === "new") {
+        const add = prompt("Enter a new ToDo:");
+        toDoList.push(add);
+        console.log(`${add} added to the list.`)
+    } else if (task === "delete") {
+        const remove = parseInt(prompt("Input the index of the entry you would like to delete:"));
+        toDoList.splice(remove, 1);
+        console.log(`OK, deleted ${deleted}`)
     }
-}
-
-if (task === "quit") {
-    break;
 }
